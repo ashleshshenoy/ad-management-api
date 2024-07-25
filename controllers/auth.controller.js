@@ -2,10 +2,16 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user.model");
 
+function isEmail(email) {
+	const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+	return pattern.test(email);
+}
+
 
 async function register(req, res){
 	const { email, password } = req.body;
 	if(!email || !password) return res.status(400).json({ error : "Invalid request, Required fields are missing."});
+	if(!isEmail(email)) return res.status(400).json({ error : "Invalid request, Email provided is not a valid mail ID."});
 	try{
 		const userExists = await User.findOne({ email });
 		if(userExists) return res.status(400).json({ error : "Invalid request, User email already in use. Please try to login or use different email"});

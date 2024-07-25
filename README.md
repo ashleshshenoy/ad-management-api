@@ -25,8 +25,10 @@ Backend system that handles user authentication & advertisement managment.
         2. The compression of videos is a CPU intensive process, and can add significant delay and response time.
     
     => We can overcome this with the help of S3 for storing the files.
-    => The CPU intensive compression process is now handled by background workers (EC2). The main server can load off its tasks to a queue, which are then executed by the background worker.
-    => Head over to [github repo](https://github.com/ashleshshenoy/dash-streaming-application) where I've implemented similar system.
+    => The CPU intensive compression process is now handled by background workers (EC2). 
+    => The main server can load off its tasks to a queue, which are then executed by the background worker.
+    => Head over to [github repo](https://github.com/ashleshshenoy/dash-streaming-application) 
+        where I've implemented similar system.
     => Here is a HLD of the mentioned solution
 ![scale drawio](https://github.com/user-attachments/assets/1f917f57-e623-45a9-8e0b-16aa6a5fee09)
 

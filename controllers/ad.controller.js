@@ -36,8 +36,7 @@ async function createAd(req, res) {
 
 		res.status(201).json(ad);
 
-	} catch (err) {
-		console.error("Error creating ad:", err);
+	} catch{
 		res.status(500).json({ error: "Internal server error" });
 	}
 }
@@ -89,8 +88,7 @@ async function updateAttributes(req, res){
 		console.log(updatedAd);
 		res.status(200).json(updatedAd);
 
-	} catch (err){
-		console.log(err);
+	} catch{
 		res.status(500).json({ error: "Internal server Error" });
 	}
 }
